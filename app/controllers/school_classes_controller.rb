@@ -1,5 +1,6 @@
 class SchoolClassesController < ApplicationController
     def new
+        @school_class = SchoolClass.new
     end
 
     def create
@@ -13,7 +14,7 @@ class SchoolClassesController < ApplicationController
     end
 
     def edit 
-       
+        @school_class = SchoolClass.find_by_id(params[:id])
     end
 
     def update
