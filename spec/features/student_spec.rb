@@ -46,7 +46,6 @@ describe 'form page' do
     @edit_db_student = Student.create(first_name: "Daenerys", last_name: "Targaryen")
 
     visit edit_student_path(@edit_db_student)
-
     fill_in 'student_first_name', with: "Arya"
     fill_in 'student_last_name', with: "Stark"
 
