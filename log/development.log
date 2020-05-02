@@ -151,3 +151,31 @@ rack (2.0.8) lib/rack/handler/webrick.rb:86:in `service'
   Rendering /Users/Mac/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/Mac/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /Users/Mac/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.9ms)
+Started GET "/school_classes/new" for ::1 at 2020-05-02 21:30:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#new as HTML
+  Rendering school_classes/new.html.erb within layouts/application
+  Rendered school_classes/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 642ms (Views: 627.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/school_classes" for ::1 at 2020-05-02 21:30:39 +0100
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GTSxLg6XRoX2ggxQICOLTZ1gpfm/S0pBmu7ZTckkOeWcwKU1UUEvmgmSXBgbSe+dX8wlqUo2vjQQ7Uf8IQ5OWg==", "school_class"=>{"title"=>"Mobile Software Engineering", "room_number"=>"3"}, "commit"=>"Create School class"}
+Unpermitted parameters: title, room_number
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "school_classes" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2020-05-02 20:30:39.394123"], ["updated_at", "2020-05-02 20:30:39.394123"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/school_classes/2
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/school_classes/2" for ::1 at 2020-05-02 21:30:39 +0100
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering school_classes/show.html.erb within layouts/application
+  Rendered school_classes/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+
+
