@@ -11,20 +11,24 @@ class StudentsController < ApplicationController
     end
 
     def show
-        @student = Student.find(params[:id])
+        @student = find
     end
 
     def edit
-        @student = Student.find(params[:id])
+        @student = find
     end
 
     def update
-        @student = Student.find(params[:id])
+        @student = find
         @student.update(student_params(:first_name, :last_name))
         redirect_to student_path(@student)
     end
 
     private
+
+    def find
+     Student.find(params[:id])
+    end
 
     def student_params(*args)
         params.require(:student).permit(*args)
