@@ -1,25 +1,26 @@
 class SchoolClassesController < ApplicationController
 
     def new
-        @schoolclass = SchoolClass.new 
+      @schoolclass = SchoolClass.new
     end
 
-    def create
+    def create 
         @schoolclass = SchoolClass.create(title: params[:school_class][:title], room_number: params[:school_class][:room_number])
         redirect_to school_class_path(@schoolclass)
-    end
+    end 
 
-    def show
+    def show 
         @schoolclass = SchoolClass.find_by(id: params[:id])
-    end
+    end 
 
-    def edit
+    def edit 
         @schoolclass = SchoolClass.find_by(id: params[:id])
-    end
+    end 
 
-    def update
+    def update 
         @schoolclass = SchoolClass.find_by(id: params[:id])
         @schoolclass.update(title: params[:school_class][:title], room_number: params[:school_class][:room_number])
         redirect_to school_class_path(@schoolclass)
-    end
+    end 
+
 end
